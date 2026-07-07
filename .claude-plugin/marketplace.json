@@ -1,0 +1,19 @@
+{
+  "name": "normanormata",
+  "description": "Claude plugins by normanormata",
+  "owner": {
+    "name": "normanormata",
+    "url": "https://github.com/normanormata"
+  },
+  "plugins": [
+    {
+      "name": "westminster-standards",
+      "source": "./plugins/westminster-standards",
+      "description": "Read, search, and quiz yourself on the Westminster Standards — Confession of Faith and Larger/Shorter Catechisms, with scripture proofs and the 2025 Modern English Study Version",
+      "version": "0.1.0",
+      "author": {
+        "name": "normanormata"
+      }
+    }
+  ]
+}
