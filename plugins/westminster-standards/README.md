@@ -32,8 +32,16 @@ needed after install.
 
 ## Installing the plugin
 
-Open the `.plugin` file with Claude (or drag it into a Cowork conversation) and
-accept the install prompt.
+**Claude Cowork**: open **Customize** → **Plugins**, select **Add marketplace**,
+enter `normanormata/normanormata-plugins`, then **Browse plugins** and install
+**westminster-standards**.
+
+**Claude Code**:
+
+```
+/plugin marketplace add normanormata/normanormata-plugins
+/plugin install westminster-standards@normanormata
+```
 
 ## Data sources
 
@@ -44,4 +52,5 @@ MESV is a study aid and carries no constitutional authority.
 
 ## Source
 
-CLI and plugin source: <https://github.com/normanormata/westminster_cli>
+CLI source: <https://github.com/normanormata/westminster_cli>
+Plugin source: <https://github.com/normanormata/normanormata-plugins>

@@ -5,14 +5,35 @@ Claude Code and Claude Cowork.
 
 ## Install
 
-Add the marketplace once, then install any plugin from it:
+Add the marketplace once, then install any plugin from it.
+
+### Claude Cowork (desktop app)
+
+1. Open **Customize** in the sidebar, then select **Plugins**.
+2. Select **Add marketplace** and enter `normanormata/normanormata-plugins`
+   (or the full URL `https://github.com/normanormata/normanormata-plugins`).
+3. Select **Browse plugins**, choose the plugin you want, and click **Install**.
+
+### Claude Code (CLI / IDE)
+
+Run these slash commands in a Claude Code session:
 
 ```
 /plugin marketplace add normanormata/normanormata-plugins
 /plugin install <plugin-name>@normanormata
 ```
 
-Update later with `/plugin marketplace update normanormata`.
+Or from your shell:
+
+```sh
+claude plugin marketplace add normanormata/normanormata-plugins
+claude plugin install <plugin-name>@normanormata
+```
+
+### Updating
+
+Pick up new plugin versions with `/plugin marketplace update normanormata`
+(Claude Code) or by refreshing the marketplace from the Plugins page (Cowork).
 
 ## Plugins
 
