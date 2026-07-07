@@ -10,7 +10,7 @@
       "name": "westminster-standards",
       "source": "./plugins/westminster-standards",
       "description": "Read, search, and quiz yourself on the Westminster Standards — Confession of Faith and Larger/Shorter Catechisms, with scripture proofs and the 2025 Modern English Study Version",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "normanormata"
       }

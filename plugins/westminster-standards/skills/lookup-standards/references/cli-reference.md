@@ -41,16 +41,19 @@ Notes:
 ## Search and discovery
 
 ```sh
-ws search "chief end"     # AND-of-terms across all documents (not phrase search)
+ws search "chief end"                 # AND-of-terms across all documents (not phrase search)
+ws search --regex "bapti[sz]ed?"      # case-insensitive regular expression (also -r)
 ws list                   # the three documents with entry counts
 ws list wsc               # every entry in a document (ref + first line)
 ws stats                  # corpus counts
 ws sources                # OPC source pages
 ```
 
-Search matches entries containing **all** terms, case-insensitively, anywhere in
-the entry (including its reference and document name). Prefer distinctive terms;
-broaden by removing terms if nothing matches.
+Plain search matches entries containing **all** terms, case-insensitively,
+anywhere in the entry (including its reference and document name). Prefer
+distinctive terms; broaden by removing terms if nothing matches. With
+`-r`/`--regex` the whole query is one case-insensitive regular expression
+(requires CLI 0.2.0+); invalid patterns exit 1 with `error: Invalid regex: ...`.
 
 ## Sample outputs (piped — plain text, no color, no pager)
 

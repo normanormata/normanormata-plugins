@@ -25,6 +25,7 @@ See `references/cli-reference.md` for troubleshooting.
 | Task | Command |
 |------|---------|
 | Search by topic | `ws search "chief end"` — matches entries containing ALL terms (not a phrase) |
+| Regex search | `ws search --regex "bapti[sz]ed?"` — case-insensitive regular expression |
 | Shorter Catechism Q&A | `ws wsc 1` (questions 1–107) |
 | Larger Catechism Q&A | `ws wlc 1` (questions 1–196) |
 | Confession section | `ws wcf 1.4` (chapters 1–33) |
@@ -46,4 +47,4 @@ Full command matrix, reference ranges, and sample outputs: `references/cli-refer
 - When the user names a topic rather than a reference, run `ws search` first, then show the most relevant entries in full.
 - Offer scripture proofs (`-p`) when the user is studying a doctrine, and the MESV (`-m`) when the archaic language is a barrier.
 - When quoting the MESV, note it is a study version with no constitutional authority in the OPC.
-- `ws search` uses AND-of-terms matching: prefer two or three distinctive words; if a search returns nothing, retry with fewer or different terms.
+- `ws search` uses AND-of-terms matching: prefer two or three distinctive words; if a search returns nothing, retry with fewer or different terms, or use `--regex` for word variants (`justif(y|ication)`, `bapti[sz]`).
