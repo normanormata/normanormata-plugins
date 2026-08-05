@@ -58,9 +58,12 @@ Example prompts:
 
 Powered by the
 [`westminster-standards-cli`](https://pypi.org/project/westminster-standards-cli/)
-([source](https://github.com/normanormata/westminster_cli)), installed from
-PyPI on first use (requires Python 3.9+ and [`uv`](https://docs.astral.sh/uv/)
-or [`pipx`](https://pipx.pypa.io/)). Everything runs locally; the full corpus
-is bundled with the CLI. Text derives from the OPC pages and documents linked
-from <https://opc.org/confessions.html>; per the OPC preface, the 2025 MESV is
-a study aid and carries no constitutional authority.
+([source](https://github.com/normanormata/westminster_cli)). On first use the
+plugin checks that the CLI supports the required commands. If it is missing or
+incompatible, Claude explains the proposed install or repair and asks for
+permission before changing anything. Installation requires Python 3.9+ and
+[`uv`](https://docs.astral.sh/uv/) or [`pipx`](https://pipx.pypa.io/).
+Everything runs locally after installation; the full corpus is bundled with the
+CLI. Text derives from the OPC pages and documents linked from
+<https://opc.org/confessions.html>; per the OPC preface, the 2025 MESV is a
+study aid and carries no constitutional authority.

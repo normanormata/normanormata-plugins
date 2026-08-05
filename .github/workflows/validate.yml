@@ -1,0 +1,56 @@
+name: Validate plugin
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 9 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      - name: Validate plugin metadata and skills
+        run: python scripts/validate_plugin.py
+
+  cli-smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.14"]
+        cli-spec:
+          - "westminster-standards-cli==0.2.0"
+          - "westminster-standards-cli"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+      - name: Install CLI
+        env:
+          CLI_SPEC: ${{ matrix.cli-spec }}
+        run: uv tool install "$CLI_SPEC"
+      - name: Smoke-test required capabilities
+        shell: bash
+        run: |
+          set -euo pipefail
+          ws stats
+          ws search --regex '(?!)'
+          test "$(ws wsc 1 --question)" = "What is the chief end of man?"
+          test "$(ws wlc 1 --question)" = "What is the chief and highest end of man?"
+          ws wcf 1.1 --compare | grep -F "2025 MESV (study version)"

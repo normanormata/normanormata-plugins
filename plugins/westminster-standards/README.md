@@ -24,11 +24,13 @@ you missed.
 - macOS or Linux with Python 3.9+
 - [`uv`](https://docs.astral.sh/uv/) or [`pipx`](https://pipx.pypa.io/)
 
-On first use the plugin installs the
+On first use the plugin checks that the
 [`westminster-standards-cli`](https://pypi.org/project/westminster-standards-cli/)
-tool from PyPI (`uv tool install westminster-standards-cli`). Everything runs
-locally — the full corpus is bundled with the CLI, so no network access is
-needed after install.
+supports the commands it needs. If the CLI is missing or incompatible, Claude
+shows the proposed command and asks permission before installing or repairing
+the latest release from PyPI. It never installs the CLI or a package manager
+without approval. Everything runs locally after installation — the full corpus
+is bundled with the CLI, so no network access is needed at runtime.
 
 ## Installing the plugin
 

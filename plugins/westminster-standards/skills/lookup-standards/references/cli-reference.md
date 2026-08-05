@@ -78,15 +78,17 @@ Scripture Proofs
 
 ## Install and troubleshooting
 
-Preferred install (any macOS/Linux machine with Python 3.9+):
+Never install, upgrade, or repair software without the user's explicit approval.
+After explaining the change and receiving approval, the preferred install on a
+macOS/Linux machine with Python 3.9+ is:
 
 ```sh
 uv tool install westminster-standards-cli
 ```
 
-- No `uv`? Install it first: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-  (then ensure `~/.local/bin` is on PATH), or use `pipx install westminster-standards-cli`.
+- No `uv`? Ask separately before installing it from its official instructions,
+  or propose `pipx install westminster-standards-cli` when `pipx` is available.
 - `ws` not found after install: `uv tool update-shell` or add `~/.local/bin` to PATH.
-- Upgrade: `uv tool upgrade westminster-standards-cli`.
+- Upgrade after approval: `uv tool upgrade westminster-standards-cli`.
 - The package bundles the full corpus — no network access is needed at runtime.
 - Exit codes: 0 success, 1 lookup/validation error (message on stderr), 2 usage error.

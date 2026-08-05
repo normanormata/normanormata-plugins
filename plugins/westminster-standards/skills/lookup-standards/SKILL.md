@@ -7,18 +7,31 @@ description: Look up, quote, and cite the Westminster Standards. Use when the us
 
 Answer questions about the Westminster Standards by running the `ws` command-line tool and quoting its output. Never answer from memory — the corpus is the source of truth.
 
-## Setup (first use only)
+## Setup and capability check
 
-Health-check with `ws stats` (not just `command -v ws` — a stale install can
-exist but fail):
+Before the first lookup, run both `ws stats` and
+`ws search --regex '(?!)'`. The second command intentionally returns no matches
+and verifies regex support. If both commands succeed, continue without changing
+the environment.
 
-- Command missing: `uv tool install westminster-standards-cli`. If `uv` is
-  missing, install it first (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
-  or use `pipx install westminster-standards-cli`.
-- Command present but erroring: `uv tool install --force westminster-standards-cli`.
-- `ws stats` succeeds: do nothing.
+If either command is missing or fails:
 
-See `references/cli-reference.md` for troubleshooting.
+1. Explain that `westminster-standards-cli` is missing or incompatible. Ask for
+   explicit permission before running any install or repair command.
+2. When available, inspect `uv tool list` and `pipx list --short`. Prefer the
+   package manager that already lists `westminster-standards-cli`; otherwise
+   prefer `uv`, then `pipx`.
+3. Show the exact command before asking. Use
+   `uv tool install westminster-standards-cli` or
+   `pipx install westminster-standards-cli` when missing, adding `--force` when
+   repairing an incompatible install. These commands install the latest release.
+4. If neither package manager exists, ask separately before installing one and
+   provide its official installation instructions. Do not combine package-manager
+   installation and CLI installation without telling the user about both changes.
+5. After approval and installation, rerun both capability checks. If either still
+   fails, report the failure and stop; never substitute an answer from memory.
+
+See `references/cli-reference.md` for additional troubleshooting.
 
 ## Commands
 
